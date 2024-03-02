@@ -9,10 +9,12 @@ const loadAllPost = async () => {
 
 const displayAllPost = (posts) => {
   const cardContainer = document.getElementById("card-container");
+  const cardMark = document.getElementById("card-marked");
   posts.forEach((post) => {
     const card = document.createElement("div");
-    console.log(post);
+    // console.log(post);
     const {
+      id,
       image,
       category,
       title,
@@ -50,7 +52,10 @@ const displayAllPost = (posts) => {
                         <span>${posted_time}</span>
                     </div>
                 </div>
-                <div>
+                <div onclick="cardMark('${title.replace(
+                  "'",
+                  ""
+                )}','${view_count}')">
                     <img src="assets/images/message.svg" alt="">
                 </div>
             </div>
@@ -59,6 +64,24 @@ const displayAllPost = (posts) => {
         `;
     cardContainer.appendChild(card);
   });
+};
+
+const cardMark = (title, view) => {
+  const cardMarked = document.getElementById("card-marked");
+  const titleDiv = document.createElement("div");
+  const marksRead = document.getElementById("marks-read");
+  titleDiv.innerHTML = `
+    <div class="flex p-3 items-center justify-between  rounded-xl bg-white">
+        <p class="text-sm">${title}</p>
+        <div class="flex justify-center items-center gap-2">
+            <span><img src="assets/images/tabler-icon-eye.svg" alt=""></span>
+            <span>${view}</span>
+        </div>
+    </div>
+    `;
+  const marksReadValue = parseInt(marksRead.innerText);
+  marksRead.innerText = marksReadValue + 1;
+  cardMarked.appendChild(titleDiv);
 };
 
 loadAllPost();
