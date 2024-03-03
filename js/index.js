@@ -1,11 +1,20 @@
-const loadAllPost = async () => {
+setTimeout(async ()=>{
   const res = await fetch(
     "https://openapi.programming-hero.com/api/retro-forum/posts"
   );
   const data = await res.json();
   const posts = data.posts;
   displayAllPost(posts);
-};
+},2000);
+
+// const loadAllPost = async () => {
+//   const res = await fetch(
+//     "https://openapi.programming-hero.com/api/retro-forum/posts"
+//   );
+//   const data = await res.json();
+//   const posts = data.posts;
+//   displayAllPost(posts);
+// };
 
 const displayAllPost = (posts) => {
   const cardContainer = document.getElementById("card-container");
@@ -27,7 +36,7 @@ const displayAllPost = (posts) => {
       isActive,
     } = post;
     card.innerHTML = `
-        <div class="flex flex-col lg:flex-row  bg-[#797DFC1A] p-4 lg:p-10 rounded-3xl  gap-6">
+        <div class="flex   bg-[#797DFC1A] p-4 lg:p-10 rounded-3xl  gap-6">
         <div class = "relative">
             ${
               isActive
@@ -35,36 +44,36 @@ const displayAllPost = (posts) => {
                 : `<img class="absolute right-[-6px] top-[-12px]" src="assets/images/dot_red.svg" >`
             }
             
-            <img class="lg:w-16 lg:h-16 rounded-xl" src="${image}" alt="">
+            <img class="w-16 h-16 rounded-xl" src="${image}" alt="">
         </div>
         <div class="flex-1">
             <div class="flex justify-between lg:justify-start  gap-6 lg:gap-8">
-                <span class="text-xs lg:text-lg">#${category}</span>
-                <span class="text-xs lg:text-lg">Author: ${author.name}</span>
+                <span class="text-sm lg:text-lg">#${category}</span>
+                <span class="text-sm lg:text-lg">Author: ${author.name}</span>
             </div>
-            <h3 class="text-sm lg:text-xl font-bold mt-2 mb-4">${title}</h3>
-            <p class="w-full lg:w-5/6 text-xs lg:text-lg">${description}</p>
+            <h3 class="text-xl font-bold mt-2 mb-4">${title}</h3>
+            <p class="w-full lg:w-5/6 text-sm lg:text-lg">${description}</p>
             <hr class="my-5">
             <div class="flex justify-between">
-                <div class="flex gap-2 lg:gap-7 items-center">
+                <div class="flex gap-4 lg:gap-7 items-center">
                     <div class="flex justify-center items-center gap-1 lg:gap-2">
-                        <span><img class="w-3 lg:w-5" src="assets/images/message2.svg" alt=""></span>
-                        <span class = "text-xs lg:text-lg">${comment_count}</span>
+                        <span><img class="w-5" src="assets/images/message2.svg" alt=""></span>
+                        <span class = "text-sm lg:text-lg">${comment_count}</span>
                     </div>
                     <div class="flex justify-center items-center gap-1 lg:gap-2">
-                        <span><img class="w-3 lg:w-6" src="assets/images/tabler-icon-eye.svg" alt=""></span>
-                        <span class = "text-xs lg:text-lg">${view_count}</span>
+                        <span><img class="w-6" src="assets/images/tabler-icon-eye.svg" alt=""></span>
+                        <span class = "text-sm lg:text-lg">${view_count}</span>
                     </div>
                     <div class="flex justify-center items-center gap-1 lg:gap-2">
-                        <span><img class="w-3 lg:w-5" src="assets/images/time.svg" alt=""></span>
-                        <span class = "text-xs lg:text-lg">${posted_time}</span>
+                        <span><img class="w-5" src="assets/images/time.svg" alt=""></span>
+                        <span class = "text-sm lg:text-lg">${posted_time}</span>
                     </div>
                 </div>
                 <div onclick="cardMark('${title.replace(
                   "'",
                   ""
                 )}','${view_count}')">
-                    <img class="w-5 lg:w-7" src="assets/images/message.svg" alt="">
+                    <img class="w-6 lg:w-7" src="assets/images/message.svg" alt="">
                 </div>
             </div>
         </div>
@@ -80,11 +89,11 @@ const cardMark = (title, view) => {
   const titleDiv = document.createElement("div");
   const marksRead = document.getElementById("marks-read");
   titleDiv.innerHTML = `
-    <div class="flex flex-col lg:flex-row p-3 items-start gap-2 lg:items-center justify-between  rounded-xl bg-white">
-        <p class="text-xs lg:text-sm font-bold">${title}</p>
-        <div class="flex justify-center items-center gap-2">
-            <span><img class="w-3 lg:w-5" src="assets/images/tabler-icon-eye.svg" alt=""></span>
-            <span class="text-xs lg:text-lg">${view}</span>
+    <div class="flex  p-3 items-start gap-2 lg:items-center justify-between  rounded-xl bg-white">
+        <p class="text-sm lg:text-sm font-bold">${title}</p>
+        <div class="flex justify-center items-center gap-1 lg:gap-2">
+            <span><img class="w-5" src="assets/images/tabler-icon-eye.svg" alt=""></span>
+            <span class="text-sm lg:text-lg">${view}</span>
         </div>
     </div>
     `;
@@ -94,13 +103,21 @@ const cardMark = (title, view) => {
   //   loadingSpinner(false);
 };
 
-const loadLatestPost = async () => {
+setTimeout(async()=>{
   const res = await fetch(
     "https://openapi.programming-hero.com/api/retro-forum/latest-posts"
   );
   const data = await res.json();
   displayLatestPost(data);
-};
+},2000);
+
+// const loadLatestPost = async () => {
+//   const res = await fetch(
+//     "https://openapi.programming-hero.com/api/retro-forum/latest-posts"
+//   );
+//   const data = await res.json();
+//   displayLatestPost(data);
+// };
 
 const displayLatestPost = (posts) => {
   const latestPostContainer = document.getElementById("latest-post-container");
@@ -141,19 +158,27 @@ const displayLatestPost = (posts) => {
   loadingSpinner(false);
 };
 
+
+
 const handleSearch = async () => {
   loadingSpinner(true);
-  const searchInputField = document.getElementById("search-input");
-  const searchValue = searchInputField.value;
+  // const searchInputField = document.getElementById("search-input");
+  // const searchValue = searchInputField.value;
   // console.log(searchValue);
 
-  const res = await fetch(
-    `https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchValue}`
-  );
-  const data = await res.json();
-  const posts = data.posts;
-  // console.log(posts);
-  displayAllPost(posts);
+  setTimeout(async()=>{
+    const searchInputField = document.getElementById("search-input");
+  const searchValue = searchInputField.value;
+    const res = await fetch(
+      `https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchValue}`
+    );
+    const data = await res.json();
+    const posts = data.posts;
+    // console.log(posts);
+    displayAllPost(posts);
+  },2000)
+
+  
 };
 
 const loadingSpinner = (isLoading) => {
