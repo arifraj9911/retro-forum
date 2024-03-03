@@ -9,6 +9,7 @@ const loadAllPost = async () => {
 
 const displayAllPost = (posts) => {
   const cardContainer = document.getElementById("card-container");
+  cardContainer.innerHTML = "";
   //   const cardMark = document.getElementById("card-marked");
   posts.forEach((post) => {
     const card = document.createElement("div");
@@ -138,6 +139,21 @@ const displayLatestPost = (posts) => {
     latestPostContainer.appendChild(latestPostDiv);
   });
   loadingSpinner(false);
+};
+
+const handleSearch = async () => {
+  loadingSpinner(true);
+  const searchInputField = document.getElementById("search-input");
+  const searchValue = searchInputField.value;
+  // console.log(searchValue);
+
+  const res = await fetch(
+    `https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchValue}`
+  );
+  const data = await res.json();
+  const posts = data.posts;
+  // console.log(posts);
+  displayAllPost(posts);
 };
 
 const loadingSpinner = (isLoading) => {
