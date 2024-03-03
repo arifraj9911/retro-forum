@@ -71,6 +71,7 @@ const displayAllPost = (posts) => {
         `;
     cardContainer.appendChild(card);
   });
+  loadingSpinner(false);
 };
 
 const cardMark = (title, view) => {
@@ -89,6 +90,7 @@ const cardMark = (title, view) => {
   const marksReadValue = parseInt(marksRead.innerText);
   marksRead.innerText = marksReadValue + 1;
   cardMarked.appendChild(titleDiv);
+  //   loadingSpinner(false);
 };
 
 const loadLatestPost = async () => {
@@ -135,7 +137,18 @@ const displayLatestPost = (posts) => {
         `;
     latestPostContainer.appendChild(latestPostDiv);
   });
+  loadingSpinner(false);
 };
 
+const loadingSpinner = (isLoading) => {
+  const loadingSpinner = document.getElementById("loading-spinner");
+  if (isLoading) {
+    loadingSpinner.classList.remove("hidden");
+  } else {
+    loadingSpinner.classList.add("hidden");
+  }
+};
+
+loadingSpinner(true);
 loadAllPost();
 loadLatestPost();
