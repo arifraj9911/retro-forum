@@ -27,7 +27,7 @@ const displayAllPost = (posts) => {
       isActive,
     } = post;
     card.innerHTML = `
-        <div class="flex  bg-[#797DFC1A] p-10 rounded-3xl  gap-6">
+        <div class="flex flex-col lg:flex-row  bg-[#797DFC1A] p-4 lg:p-10 rounded-3xl  gap-6">
         <div class = "relative">
             ${
               isActive
@@ -35,36 +35,36 @@ const displayAllPost = (posts) => {
                 : `<img class="absolute right-[-6px] top-[-12px]" src="assets/images/dot_red.svg" >`
             }
             
-            <img class="w-16 h-16 rounded-xl" src="${image}" alt="">
+            <img class="lg:w-16 lg:h-16 rounded-xl" src="${image}" alt="">
         </div>
         <div class="flex-1">
-            <div class="flex gap-8">
-                <span>#${category}</span>
-                <span>Author: ${author.name}</span>
+            <div class="flex justify-between lg:justify-start  gap-6 lg:gap-8">
+                <span class="text-xs lg:text-lg">#${category}</span>
+                <span class="text-xs lg:text-lg">Author: ${author.name}</span>
             </div>
-            <h3 class="text-xl font-bold mt-2 mb-4">${title}</h3>
-            <p class="w-5/6">${description}</p>
+            <h3 class="text-sm lg:text-xl font-bold mt-2 mb-4">${title}</h3>
+            <p class="w-full lg:w-5/6 text-xs lg:text-lg">${description}</p>
             <hr class="my-5">
             <div class="flex justify-between">
-                <div class="flex gap-7 items-center">
-                    <div class="flex justify-center items-center gap-2">
-                        <span><img src="assets/images/message2.svg" alt=""></span>
-                        <span>${comment_count}</span>
+                <div class="flex gap-2 lg:gap-7 items-center">
+                    <div class="flex justify-center items-center gap-1 lg:gap-2">
+                        <span><img class="w-3 lg:w-5" src="assets/images/message2.svg" alt=""></span>
+                        <span class = "text-xs lg:text-lg">${comment_count}</span>
                     </div>
-                    <div class="flex justify-center items-center gap-2">
-                        <span><img src="assets/images/tabler-icon-eye.svg" alt=""></span>
-                        <span>${view_count}</span>
+                    <div class="flex justify-center items-center gap-1 lg:gap-2">
+                        <span><img class="w-3 lg:w-6" src="assets/images/tabler-icon-eye.svg" alt=""></span>
+                        <span class = "text-xs lg:text-lg">${view_count}</span>
                     </div>
-                    <div class="flex justify-center items-center gap-2">
-                        <span><img src="assets/images/time.svg" alt=""></span>
-                        <span>${posted_time}</span>
+                    <div class="flex justify-center items-center gap-1 lg:gap-2">
+                        <span><img class="w-3 lg:w-5" src="assets/images/time.svg" alt=""></span>
+                        <span class = "text-xs lg:text-lg">${posted_time}</span>
                     </div>
                 </div>
                 <div onclick="cardMark('${title.replace(
                   "'",
                   ""
                 )}','${view_count}')">
-                    <img src="assets/images/message.svg" alt="">
+                    <img class="w-5 lg:w-7" src="assets/images/message.svg" alt="">
                 </div>
             </div>
         </div>
@@ -80,11 +80,11 @@ const cardMark = (title, view) => {
   const titleDiv = document.createElement("div");
   const marksRead = document.getElementById("marks-read");
   titleDiv.innerHTML = `
-    <div class="flex p-3 items-center justify-between  rounded-xl bg-white">
-        <p class="text-sm">${title}</p>
+    <div class="flex flex-col lg:flex-row p-3 items-start gap-2 lg:items-center justify-between  rounded-xl bg-white">
+        <p class="text-xs lg:text-sm font-bold">${title}</p>
         <div class="flex justify-center items-center gap-2">
-            <span><img src="assets/images/tabler-icon-eye.svg" alt=""></span>
-            <span>${view}</span>
+            <span><img class="w-3 lg:w-5" src="assets/images/tabler-icon-eye.svg" alt=""></span>
+            <span class="text-xs lg:text-lg">${view}</span>
         </div>
     </div>
     `;
