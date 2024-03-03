@@ -27,7 +27,7 @@ const displayAllPost = (posts) => {
       isActive,
     } = post;
     card.innerHTML = `
-        <div class="flex  bg-[#797DFC1A] p-10 rounded-3xl  gap-6 ">
+        <div class="flex  bg-[#797DFC1A] p-10 rounded-3xl  gap-6">
         <div class = "relative">
             ${
               isActive
@@ -37,7 +37,7 @@ const displayAllPost = (posts) => {
             
             <img class="w-16 h-16 rounded-xl" src="${image}" alt="">
         </div>
-        <div>
+        <div class="flex-1">
             <div class="flex gap-8">
                 <span>#${category}</span>
                 <span>Author: ${author.name}</span>

@@ -45,38 +45,39 @@
       <nav class="pt-6">
         <div class="navbar bg-base-100">
           <div class="navbar-start">
-            <a class="btn btn-ghost text-4xl font-extrabold"
-              ><img src="assets/images/logo.png" alt=""
+            <a class="btn btn-ghost pl-0 font-extrabold"
+              ><img class="w-3/4 lg:w-full" src="assets/images/logo.png" alt=""
             /></a>
           </div>
           <div class="navbar-end">
-            <div class="flex gap-3">
+            <div class="flex gap-1 lg:gap-3">
               <a
-                class="tooltip text-black bg-gray-100 border-2 p-2 rounded-full"
+                class="tooltip text-black bg-gray-100 border-2 px-2 py-1 lg:py-2 lg:px-3 rounded-full"
                 data-tip="home"
                 href="#"
-                ><i class="fa-solid fa-house fa-lg"></i
+                ><i class="fa-solid fa-house fa-sm lg:fa-lg"></i
               ></a>
               <a
-                class="tooltip text-black bg-gray-100 border-2 p-2 rounded-full"
+                class="tooltip text-black bg-gray-100 border-2 px-2 py-1 lg:py-2 lg:px-3 rounded-full"
                 data-tip="pen"
                 href="#"
-                ><i class="fa-solid fa-pen fa-lg"></i
+                ><i class="fa-solid fa-pen fa-sm lg:fa-lg"></i
               ></a>
               <a
-                class="tooltip text-black bg-gray-100 border-2 p-2 rounded-full"
+                class="tooltip text-black bg-gray-100 border-2 px-2 py-1 lg:py-2 lg:px-3 rounded-full"
                 data-tip="profile"
                 href="#"
-                ><i class="fa-regular fa-user fa-lg"></i
+                ><i class="fa-regular fa-user fa-sm lg:fa-lg"></i
               ></a>
               <a
-                class="tooltip text-black bg-gray-100 border-2 p-2 rounded-full"
+                class="tooltip text-black bg-gray-100 border-2 px-2 py-1 lg:py-2 lg:px-3 rounded-full"
                 data-tip="flag"
                 href="#"
-                ><i class="fa-regular fa-flag fa-lg"></i
+                ><i class="fa-regular fa-flag fa-sm lg:fa-lg"></i
               ></a>
             </div>
-            <a class="btn ms-6 w-36 rounded-[50px] bg-[#797DFC] text-white"
+            <a
+              class="btn ms-2 lg:ms-6 w-18 lg:w-36 rounded-[50px] bg-[#797DFC] text-white"
               >Sign In</a
             >
           </div>
@@ -85,11 +86,15 @@
 
       <!-- banner -->
       <section
-        class="bg-[url('/assets/images/Rectangle.png')] h-screen bg-no-repeat bg-cover bg-center mt-12"
+        class="bg-[url('/assets/images/Rectangle.png')] h-screen bg-no-repeat bg-cover bg-center mt-8 lg:mt-12"
       >
-        <div class="flex justify-center items-center p-24">
+        <div
+          class="flex flex-col lg:flex-row gap-10 lg:gap-0 justify-center items-center p-12 lg:p-24"
+        >
           <div class="text-white">
-            <h1 class="text-6xl w-5/6 leading-[86px] font-black">
+            <h1
+              class="text-4xl lg:text-6xl w-full text-center lg:text-left lg:w-5/6 lg:leading-[86px] font-black"
+            >
               Welcome to the
               <span
                 class="bg-gradient-to-r from-[#797DFC] to-[#797DFC] text-transparent bg-clip-text"
@@ -97,11 +102,11 @@
               >
               Forum
             </h1>
-            <p class="mt-5 mb-8 w-1/2">
+            <p class="mt-5 mb-6 lg:mb-8 text-center lg:text-left lg:w-1/2">
               Share your favorite opinion and win and wp forum coffee mug!
             </p>
             <label
-              class="input input-bordered flex items-center w-3/5 rounded-[50px] gap-2"
+              class="input input-bordered flex items-center w-5/6 mx-auto lg:mx-0 lg:w-3/5 rounded-[50px] gap-2"
             >
               <input
                 id="search-input"
@@ -117,25 +122,25 @@
             </label>
           </div>
           <div
-            class="bg-white text-[#12132DCC] p-12 w-1/3 rounded-[32px] flex flex-col gap-6"
+            class="bg-white text-[#12132DCC] p-6 lg:p-12 w-full lg:w-1/3 rounded-[32px] flex flex-col gap-2 lg:gap-6"
           >
             <li class="list-none flex justify-between">
               <span>Registered Users</span> <span>2</span>
             </li>
             <li class="list-none flex justify-between">
-              <span>Registered Users</span> <span>3</span>
+              <span>Forum</span> <span>3</span>
             </li>
             <li class="list-none flex justify-between">
-              <span>Registered Users</span> <span>1</span>
+              <span>Topics</span> <span>1</span>
             </li>
             <li class="list-none flex justify-between">
-              <span>Registered Users</span> <span>4</span>
+              <span>Replies</span> <span>4</span>
             </li>
           </div>
         </div>
       </section>
     </header>
-    <main class="mt-24 max-w-screen-xl mx-auto font-mulish">
+    <main class="mt-24 max-w-screen-xl mx-auto font-mulish hidden">
       <!-- discuss section -->
       <section>
         <div class="flex flex-col items-center gap-6 mb-12">
@@ -209,7 +214,7 @@
         ></div>
       </section>
     </main>
-    <footer class="footer footer-center p-24 bg-gray-50 text-black">
+    <footer class="footer footer-center p-24 bg-gray-50 text-black hidden">
       <aside>
         <img src="assets/images/logo.png" alt="" />
         <p class="font-normal text-lg w-3/5 mt-4">
